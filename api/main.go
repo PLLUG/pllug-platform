@@ -4,5 +4,5 @@ import "log"
 
 
 func main() {
-	log.Printf("Hello world");
+	log.Printf("Hello world")
 }

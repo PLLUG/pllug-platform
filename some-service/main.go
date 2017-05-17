@@ -4,5 +4,5 @@ import "log"
 
 
 func main() {
-	log.Printf("Some service runned");
+	log.Printf("Some service runned")
 }
