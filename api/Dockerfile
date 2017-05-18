@@ -15,4 +15,6 @@ RUN go get
 # build application
 RUN go build ./main.go
 
+EXPOSE 8080
+
 CMD ["./main"]

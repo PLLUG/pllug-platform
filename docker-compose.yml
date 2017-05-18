@@ -2,7 +2,11 @@ version: '2'
 services:
   rabbitmq: 
     image: rabbitmq:latest
+    ports:
+      - "5672:5672"
   api:
     build: ./api
+    ports:
+      - "8080:8080"
   someservice:
     build: ./some-service
