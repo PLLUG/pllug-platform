@@ -1,9 +1,10 @@
 version: '2'
 services:
   rabbitmq: 
-    image: rabbitmq:latest
+    image: rabbitmq:management-alpine
     ports:
       - "5672:5672"
+      - "15672:15672"
   api:
     build: ./api
     ports:
