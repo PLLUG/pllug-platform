@@ -3,17 +3,14 @@ package main
 import (
 	"io"
 	"log"
+	"os"
 	"net/http"
 
 	"github.com/streadway/amqp"
 )
 
-const (
-	AMQP_HOST = "amqp://guest:guest@192.168.99.100:5672/"
-)
-
 func Handler(w http.ResponseWriter, r *http.Request) {
-	conn, err := amqp.Dial(AMQP_HOST)
+	conn, err := amqp.Dial(os.Getenv("AMQP_HOST"))
 	failOnError(err, "Error connect to amqp server:")
 	defer conn.Close()
 	ch, err := conn.Channel()
