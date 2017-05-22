@@ -22,7 +22,7 @@ func main() {
 		nil,
 	)
 	failOnError(err, "Error create queue")
-	msgs, err := ch.Consume(
+	messages, err := ch.Consume(
 		q.Name,
 		"",
 		true,
@@ -35,8 +35,8 @@ func main() {
 
 forever := make(chan bool)
 	go func() {
-		for d := range msgs {
-			log.Printf("Received a message: %s", d.Body)
+		for message := range messages {
+			log.Printf("Received a message: %s", message.Body)
 		}
 	}()
 	<-forever

@@ -25,7 +25,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		nil,
 	)
 	failOnError(err, "Error create queue")
-	body := "Hello world"
+	body := "test publish message"
 	err = ch.Publish(
 		"",
 		q.Name,
@@ -36,7 +36,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 			Body:        []byte(body),
 		})
 	failOnError(err, "Error publish message")
-	io.WriteString(w, "hello world\n")
+	io.WriteString(w, "message was published\n")
 }
 
 func failOnError(err error, message string) {
