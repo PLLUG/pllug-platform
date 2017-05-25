@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	log.Println("connect to host: %s", os.Getenv("AMQP_HOST"))
+	log.Println("connect to host: ", os.Getenv("AMQP_HOST"))
 	conn, err := amqp.Dial(os.Getenv("AMQP_HOST"))
 	failOnError(err, "Error connect to amqp server:")
 	defer conn.Close()
