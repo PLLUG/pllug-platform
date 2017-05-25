@@ -6,7 +6,7 @@ import (
 	"github.com/streadway/amqp"
 )
 
-func main() {
+func consumeMessage() {
 	log.Println("connect to host: ", os.Getenv("AMQP_HOST"))
 	conn, err := amqp.Dial(os.Getenv("AMQP_HOST"))
 	failOnError(err, "Error connect to amqp server:")
@@ -34,13 +34,17 @@ func main() {
 	)
 	failOnError(err, "Error consume")
 
-forever := make(chan bool)
-	go func() {
-		for message := range messages {
-			log.Printf("Received a message: %s", message.Body)
-		}
-	}()
+	forever := make(chan bool)
+		go func() {
+			for message := range messages {
+				log.Printf("Received a message: %s", message.Body)
+			}
+		}()
 	<-forever
+}
+
+func main() {
+	consumeMessage()
 }
 
 func failOnError(err error, message string) {
