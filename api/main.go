@@ -5,12 +5,14 @@ import (
 	"log"
 	"os"
 	"net/http"
+	"app/shared"
 
 	"github.com/streadway/amqp"
 )
 
 func Handler(w http.ResponseWriter, r *http.Request) {
 	conn, err := amqp.Dial(os.Getenv("AMQP_HOST"))
+	shared.Hello()
 	failOnError(err, "Error connect to amqp server:")
 	defer conn.Close()
 	ch, err := conn.Channel()
@@ -22,8 +24,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		false,
 		false,
 		false,
-		nil,
-	)
+		nil)
 	failOnError(err, "Error create queue")
 	body := "test publish message"
 	err = ch.Publish(

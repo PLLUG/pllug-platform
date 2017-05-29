@@ -11,10 +11,15 @@ services:
     build: ./api
     ports:
       - "8080:8080"
+    volumes:
+      - ./shared:/app
     depends_on:
-      - rabbitmq
+      rabbitmq:
+        condition: service_healthy
   someservice:
     build: ./some-service
     depends_on:
       rabbitmq:
         condition: service_healthy
+      api:
+        condition: service_started

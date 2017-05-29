@@ -30,8 +30,7 @@ func consumeMessage() {
 		false,
 		false,
 		false,
-		nil,
-	)
+		nil)
 	failOnError(err, "Error consume")
 
 	forever := make(chan bool)

@@ -11,6 +11,8 @@ WORKDIR /go/src/app
 # copy source code to container
 COPY . /go/src/app
 
+RUN ls /go/src/app
+
 # install packages
 RUN go get
 
