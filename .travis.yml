@@ -4,6 +4,6 @@ dist: trusty
 services:
   - docker
 before_install:
-  - curl -L https://github.com/docker/compose/releases/download/1.13.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+  - pip install docker-compose
 script:
   ./run-tests.sh
