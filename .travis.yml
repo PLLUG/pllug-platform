@@ -1,4 +1,7 @@
-sudo: required
+language: bash
+sudo: true
 dist: trusty
-script: 
+services:
+  - docker
+script:
   ./run-tests.sh
