@@ -3,7 +3,5 @@ sudo: true
 dist: trusty
 services:
   - docker
-before_install:
-  - pip install docker-compose
 script:
   ./run-tests.sh
