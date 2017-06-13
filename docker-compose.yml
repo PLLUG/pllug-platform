@@ -11,8 +11,6 @@ services:
     build: ./api
     ports:
       - "8080:8080"
-    volumes:
-      - ./shared:/app
     depends_on:
       rabbitmq:
         condition: service_healthy
