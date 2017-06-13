@@ -8,6 +8,8 @@ ENV AMQP_HOST "amqp://guest:guest@192.168.99.100:5672"
 # make container directory workdir
 WORKDIR /go/src/app
 
+ADD ../shared /go/src/app
+
 # copy source code to container
 COPY . /go/src/app
 

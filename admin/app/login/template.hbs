@@ -1,0 +1,18 @@
+{{outlet}}
+
+<div class="row align-center-middle">
+  <div class="callout small">
+    <form action="">
+      <h3 class="text-center">Login page</h3>
+      <section>
+        {{input value=email placeholder="Username or email"}}
+      </section>
+      <section>
+        {{input value=password placeholder="password" type="Password"}}
+      </section>
+      <section>
+        <button {{action 'save' placeholder="password"}} type="button" class="success button">Login</button>
+      </section>
+    </form>
+  </div>
+</div>
